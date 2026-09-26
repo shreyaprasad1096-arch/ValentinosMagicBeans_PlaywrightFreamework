@@ -1,6 +1,6 @@
 import {expect,test} from '@playwright/test';
-import * as loginPage from '../pages/login'
-import { readloginData,getAuthSessionPath } from '../utils/AuthUtils';
+import * as loginPage from '../pages/login.js';
+import { readloginData,getAuthSessionPath } from '../utils/AuthUtils.js';
 
 test('authentication',async ({page}) => {
     const loginData = readloginData()

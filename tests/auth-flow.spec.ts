@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test'
-import {EmailUtils} from "./utils/EmailUtils"
-import * as SignupPage from "./pages/signUp"
-import * as loginPage from "./pages/login"
-import { writeLoginData, loginDataFileExists} from './utils/AuthUtils'
+import {EmailUtils} from "./utils/EmailUtils.js"
+import * as SignupPage from "./pages/signUp.js"
+import * as loginPage from "./pages/login.js"
+import { writeLoginData, loginDataFileExists} from './utils/AuthUtils.js'
 
 test(`Sign Up`,async ({page}) => {
     test.skip(loginDataFileExists(), 'credentials present')
