@@ -32,7 +32,7 @@ export default defineConfig({
      video: 'retain-on-failure',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
-    headless: process.env.headless === "true"
+    headless: process.env.CI ? true : (process.env.headless !== "false")
   },
 
   /* Configure projects for major browsers */
