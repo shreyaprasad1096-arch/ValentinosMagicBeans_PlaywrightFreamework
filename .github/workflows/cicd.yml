@@ -12,7 +12,7 @@ concurrency:
 
 jobs:  
   basics:
-      name: Basic (Playwright)
+      name: Basics (Playwright)
       runs-on: ubuntu-latest
       container:
          image: mcr.microsoft.com/playwright:v1.63.0-jammy
@@ -23,5 +23,5 @@ jobs:
         - uses: actions/checkout@v4
         - name: Install deps
           run: npm ci
-        - name: Run Playwright basics
+        - name: Run Playwright Basics
           run: npx playwright test
