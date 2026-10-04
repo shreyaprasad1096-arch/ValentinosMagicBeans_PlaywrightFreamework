@@ -3,7 +3,7 @@ import {join, resolve} from 'path'
 import {writeFileSync, existsSync,mkdirSync, readFileSync} from 'fs'
 import { fileURLToPath } from 'url';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+//const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 type LoginData = { 
     email:string,

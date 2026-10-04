@@ -27,7 +27,7 @@ test(`Complete workflow for product order`, async ({ page }) => {
     //await page.locator(`[data-test-id="proceed-to-checkout"]`).getByRole(`button`).click()
     await page.getByRole('button', { name: 'Proceed to Checkout' }).click()
 
-    await checkout.addContactInfo(page)
+    const checkoutEmail = await checkout.addContactInfo(page)
     await checkout.addShippingAddressInfo(page)
     await checkout.addPaymentInfo(page)
     await checkout.placeOrder(page)
@@ -38,7 +38,7 @@ test(`Complete workflow for product order`, async ({ page }) => {
 
     //open the contact page
     await page.getByRole('button', { name: 'Track Your Order' }).click()
-    await contact.fillOrderIDAndEmailID(page, orderID!, checkout.testValues.email)
+    await contact.fillOrderIDAndEmailID(page, orderID!, checkoutEmail)
     await contact.clickTrackOrder(page)
 
     //check if ordered item is returned
@@ -50,6 +50,7 @@ test(`Complete workflow for product order-with steos`, async ({ page }) => {
     await page.goto('/products')
 
     let addedProduct: Awaited<ReturnType<typeof products.addProductsToCart>> = {} as any
+    let checkoutEmail = ''
 
     await test.step(`add product to cart`, async () => {
         addedProduct = await products.addProductsToCart(page, 1)
@@ -61,7 +62,7 @@ test(`Complete workflow for product order-with steos`, async ({ page }) => {
     })
 
     await test.step(`complete checkout information`, async () => {
-        await checkout.addContactInfo(page)
+        checkoutEmail = await checkout.addContactInfo(page)
         await checkout.addShippingAddressInfo(page)
         await checkout.addPaymentInfo(page)
         await checkout.placeOrder(page)
@@ -78,7 +79,7 @@ test(`Complete workflow for product order-with steos`, async ({ page }) => {
     await test.step(`open the contact page`, async () => {
         //open the contact page
         await page.getByRole('button', { name: 'Track Your Order' }).click()
-        await contact.fillOrderIDAndEmailID(page, orderID!, checkout.testValues.email)
+        await contact.fillOrderIDAndEmailID(page, orderID!, checkoutEmail)
         await contact.clickTrackOrder(page)
     })
 
