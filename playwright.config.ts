@@ -13,7 +13,9 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  //In order to run test for basics folder, we need to set testDir to './tests/basics' instead of './tests'
+  testDir: './tests/basics',
+  //'./tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
