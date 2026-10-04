@@ -20,26 +20,26 @@ export const testValues = {
 }
 
 export async function addContactInfo(page:Page){
-    await page.locator('@id= "firstName').fill(testValues.firstName);
+    await page.locator('[id= "firstName"]').fill(testValues.firstName);
     //locator('[data-test-id="checkout-firstname-input"]').fill(testValues.firstName);
-    await page.locator('@name = "lastName"').fill(testValues.lastName);
+    await page.locator('[id= "lastName"]').fill(testValues.lastName);
         //[data-test-id="checkout-lastname-input"]').fill(testValues.lastName);
-    await page.locator('@name = "email"').fill(testValues.email);
+    await page.locator('[id= "email"]').fill(testValues.email);
         //[data-test-id="checkout-email-input"]').fill(testValues.email);
 }
 
 export async function addShippingAddressInfo(page:Page){
-    await page.locator('@name = "address"').fill(testValues.address);
-    await page.locator('@name = "city"').fill(testValues.city);
-    await page.locator('@name = "zipCode"').fill(testValues.zipcode);
-    await page.locator('@name = "country"').fill(testValues.country);
+    await page.locator('[id= "address"]').fill(testValues.address);
+    await page.locator('[id= "city"]').fill(testValues.city);
+    await page.locator('[id= "zipCode"]').fill(testValues.zipcode);
+    await page.locator('[id= "country"]').fill(testValues.country);
 }
 
 export async function addPaymentInfo(page:Page){
-    await page.locator('@name = "cardName"').fill(testValues.payment.nameOnCard)
-    await page.locator('@name = "cardNumber"').fill(testValues.payment.cardNumber);
-    await page.locator('@name = "cardExpiry"').fill(testValues.payment.expiry);
-    await page.locator('@name = "cardCvc"').fill(testValues.payment.cvc);
+    await page.locator('[id= "cardName"]').fill(testValues.payment.nameOnCard)
+    await page.locator('[id= "cardNumber"]').fill(testValues.payment.cardNumber);
+    await page.locator('[id= "cardExpiry"]').fill(testValues.payment.expiry);
+    await page.locator('[id= "cardCvc"]').fill(testValues.payment.cvc);
 }
 
 export async function placeOrder(page: Page){
