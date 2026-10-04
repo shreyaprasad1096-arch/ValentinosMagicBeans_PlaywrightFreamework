@@ -13,7 +13,6 @@ test(`Item is added to the shopping cart`, async ({page}) => {
 
     await firstButton.click()
     await page.locator(`[data-test-id="header-cart-button"]`).getByRole(`button`).click()
-
     //assert first product name
     const firstProductHeading = page.getByRole(`heading`,{
         name: firstProductName!
